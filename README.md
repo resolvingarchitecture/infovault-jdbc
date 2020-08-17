@@ -1,1 +1,2 @@
-# infovault-derby
+# InfoVault JDBC
+
