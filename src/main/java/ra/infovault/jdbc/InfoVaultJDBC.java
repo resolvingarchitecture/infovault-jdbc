@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 public abstract class InfoVaultJDBC implements ra.common.InfoVaultJDBC {
 
-    public static final String DB = "ra.infovault.jdbc.db";
     public static final String DB_URL = "ra.infovault.jdbc.url";
 
     public static String location;
