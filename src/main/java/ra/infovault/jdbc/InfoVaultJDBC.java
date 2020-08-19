@@ -6,12 +6,14 @@ import java.util.logging.Logger;
 
 public abstract class InfoVaultJDBC implements ra.common.InfoVaultJDBC {
 
+    public static final String DB = "ra.infovault.jdbc.db";
     public static final String DB_URL = "ra.infovault.jdbc.url";
 
     public static String location;
 
     private static final Logger LOGGER = Logger.getLogger(InfoVaultJDBC.class.getName());
 
+    private Properties config;
     private String databaseURL;
 
     public Connection getConnection() {
@@ -33,12 +35,12 @@ public abstract class InfoVaultJDBC implements ra.common.InfoVaultJDBC {
 
     @Override
     public boolean start(Properties properties) {
+        config = properties;
         if(location==null) {
             LOGGER.severe("Location as absolute path, including database name, is required to be set on InfoVaultDerby.");
             return false;
         }
-//        databaseURL = "jdbc:derby:"+location+";create=true";
-        databaseURL = properties.getProperty(DB_URL);
+        databaseURL = config.getProperty(DB_URL);
         try {
             Connection conn = DriverManager.getConnection(databaseURL);
         } catch (SQLException e) {
