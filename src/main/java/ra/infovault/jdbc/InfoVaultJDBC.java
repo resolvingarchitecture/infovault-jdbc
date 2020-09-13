@@ -67,17 +67,6 @@ public abstract class InfoVaultJDBC implements ra.common.InfoVaultJDBC {
 
     @Override
     public boolean shutdown() {
-        try {
-            DriverManager.getConnection("jdbc:derby:;shutdown=true");
-        } catch (SQLException e) {
-            if (e.getSQLState().equals("XJ015")) {
-                LOGGER.info("Derby shutdown normally");
-            } else {
-                // could not shutdown the database
-                LOGGER.warning(e.getLocalizedMessage());
-                return false;
-            }
-        }
         return true;
     }
 
