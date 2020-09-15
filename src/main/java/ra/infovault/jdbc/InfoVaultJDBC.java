@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-public abstract class InfoVaultJDBC implements ra.common.InfoVaultJDBC {
+public abstract class InfoVaultJDBC implements ra.common.InfoVaultDB {
 
     public static final String DB = "ra.infovault.jdbc.db";
     public static final String DB_URL = "ra.infovault.jdbc.url";
